@@ -24,6 +24,7 @@ resource "aws_instance" "minecraft" {
         source      = "mc_env_vars.txt"
         destination = "/home/minecraft/mc_env_vars.txt"
     }
-
+    
+    provisoner "
     
 }
