@@ -1,0 +1,4 @@
+export MC_JAVA_MIN_MEM=1024M
+export MC_JAVA_MAX_MEM=1536M
+export MC_INSTALL_DIR=/home/minecraft
+export MC_BIN_DIR=/usr/bin/minecraft

@@ -17,7 +17,10 @@ resource "aws_instance" "minecraft" {
     }
 
     provisioner "remote_exec" {
-        inline = "useradd -m -d /home/minecraft/ -s /bin/bash minecraft"
+        inline = [
+            "sudo useradd -m -d /home/minecraft/ -s /bin/bash minecraft",
+            "sudo mkdir /usr/bin/minecraft",
+        ]
     }
 
     provisioner "file" {
@@ -25,6 +28,15 @@ resource "aws_instance" "minecraft" {
         destination = "/home/minecraft/mc_env_vars.txt"
     }
     
-    provisoner "
-    
+    provisoner "file" {
+        source      = "files/"
+        destination = "/usr/bin/minecraft/"
+    }
+
+    provisoner "remote_exec" {
+        inline = [
+            "chown -R minecraft: /usr/bin/minecraft/",
+            "chmod +x /usr/bin/minecraft/*"
+        ]
+    }
 }
