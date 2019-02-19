@@ -1,0 +1,3 @@
+terraform/.terraform/
+*.tfstate*
+scripts/mc_env_vars
